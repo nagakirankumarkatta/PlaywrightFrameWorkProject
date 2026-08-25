@@ -1,8 +1,7 @@
-const{expect}=require('@playwright/test')
-
+import{expect} from '@playwright/test'
 class HomePage
 {
-    constructor(page)
+    constructor()
     {
         this.page=page
         this.header="//h1"
@@ -15,10 +14,10 @@ class HomePage
         await this.page.click(this.menu)
         await this.page.click(this.logout)
     }
+
     async verifyHeader()
     {
-        await expect(this.page.locator(this.header)).toBeVisible()
+        await expect(this.menu).toBeVisible()
     }
 }
-
-module.exports = HomePage
+module.exports=HomePage
